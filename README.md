@@ -2,10 +2,17 @@
 
 A micro php router for web apps and APIs, all written in ~30 SLOC.
 
+microuter is largely inspired by the philosophy behind GluePHP, and the Sinatra API.
+
+No one expects you to write the next Facebook with microuter, but it allows you to avoid
+bloat when you're writing really tiny RESTful APIs or miniscule web apps.
+
 ## Usage
 
 microuter's API is extremely similar to Klein/Slim/Laravel and all of their
-Sintra-inspire ilk. The main difference is that patterns and passing parameters uses actual regular expressions as opposed to the [:name] sort of stuff (microuter uses regex and capture groups which, albeit uglier, are more standard).
+Sintra-inspire ilk. The main difference is that patterns and passing parameters 
+uses actual regular expressions as opposed to the `[i]` sort of stuff (microuter 
+uses regex and capture groups which, albeit uglier, are more standard).
 
 
 Binding a route is as simple as
@@ -66,7 +73,8 @@ $router->bind("GET","/add/(\d+)/(\d+)", function($a, $b){
 $router->dispatch();
 ```
 
-Just because these examples only use anonymous functions doesn't mean you can't use good-old-fashioned named functions. You can use any callable function/method.
+Just because these examples only use anonymous functions doesn't mean you can't 
+use good-old-fashioned named functions. You can use any callable function/method.
 
 ```
 function is_bastard($person){
