@@ -2,7 +2,7 @@
 
 A micro php router for web apps and APIs, all written in ~30 SLOC.
 
-microuter is largely inspired by the philosophy behind GluePHP, and the Sinatra API.
+microuter is largely inspired by the philosophy behind [GluePHP](http://gluephp.com/), and the [Sinatra](http://www.sinatrarb.com/) API.
 
 No one expects you to write the next Facebook with microuter, but it allows you to avoid
 bloat when you're writing really tiny RESTful APIs or miniscule web apps.
@@ -18,7 +18,7 @@ Or, just clone the repository and autoload the src folder (or just require/inclu
 
 ## Usage
 
-microuter's API is extremely similar to Klein/Slim/Laravel and all of their
+microuter's routing API is extremely similar to [Klein](http://chriso.github.io/klein.php/)/[Slim](http://www.slimframework.com/)/[Laravel](http://laravel.com/docs/5.1/routing) and all of their
 Sintra-inspire ilk. The main difference is that patterns and passing parameters 
 uses actual regular expressions as opposed to the `[i]` sort of stuff (microuter 
 uses regex and capture groups which, albeit uglier, are more standard).
