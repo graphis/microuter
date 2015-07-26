@@ -1,6 +1,6 @@
 {
     "name": "jszym/microuter",
-    "description": "A micro php Sinatra-like router for web apps and APIs, all in ~50 SLOC.",
+    "description": "A micro php Sinatra-like router for web apps and APIs, all in a couple of lines.",
     "type": "library",
     "license": "MIT",
     "authors": [

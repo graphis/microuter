@@ -1,6 +1,6 @@
 # microuter
 
-A micro php router for web apps and APIs, all written in ~50 SLOC.
+A micro php router for web apps and APIs, all in a couple of lines.
 
 microuter is largely inspired by the philosophy behind [GluePHP](http://gluephp.com/), and the [Sinatra](http://www.sinatrarb.com/) API.
 
