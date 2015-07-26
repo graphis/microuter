@@ -26,7 +26,7 @@ uses regex and capture groups which, albeit uglier, are more standard).
 
 Binding a route is as simple as
 
-```
+```php
 $router = \microuter\Router();
 $router->bind("GET","/", function(){
 
@@ -38,7 +38,7 @@ $router->dispatch();
 
 You can bind RESTful HTTP methods
 
-```
+```php
 $router = \microuter\Router();
 $router->bind("POST","/", function(){
 
@@ -56,7 +56,7 @@ $router->dispatch();
 
 You can also use fancy regular expressions
 
-```
+```php
 $router->bind("GET","/\+\d{12}|\d{11}|\+\d{2}-\d{3}-\d{7}", function(){
 
     echo "You passed a phone number as a URL. That's weird... stop it.";
@@ -64,13 +64,13 @@ $router->bind("GET","/\+\d{12}|\d{11}|\+\d{2}-\d{3}-\d{7}", function(){
 });
 
 $router->dispatch();
-```
+```php
 
 
 Captured groups in regular expressions are passed as parameters to the callback
 function.
 
-```
+```php
 $router->bind("GET","/add/(\d+)/(\d+)", function($a, $b){
 
     $c = $a + $b;
@@ -85,7 +85,7 @@ $router->dispatch();
 Just because these examples only use anonymous functions doesn't mean you can't 
 use good-old-fashioned named functions. You can use any callable function/method.
 
-```
+```php
 function is_bastard($person){
   switch ($person){
     case "Jon":
