@@ -1,6 +1,6 @@
 # microuter
 
-A micro php router for web apps and APIs, all written in ~30 SLOC.
+A micro php router for web apps and APIs, all written in ~50 SLOC.
 
 microuter is largely inspired by the philosophy behind [GluePHP](http://gluephp.com/), and the [Sinatra](http://www.sinatrarb.com/) API.
 
@@ -78,6 +78,20 @@ $router->bind("GET","/add/(\d+)/(\d+)", function($a, $b){
     echo "$a + $b = $c";
 
 });
+
+$router->dispatch();
+```
+
+You can use named capture groups, the names of which correspond to the parameters
+of the callback function.
+```php
+$router->bind("GET","/greet/(?P<lastname>\w+)/(?P<firstname>\w+)", 
+
+    function ($firstname, $lastname){
+     
+        echo "Hello, $firstname $lastname";
+        
+    });
 
 $router->dispatch();
 ```

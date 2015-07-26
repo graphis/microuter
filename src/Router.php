@@ -89,7 +89,7 @@ class Router {
         }else{
             
             $pattern = "@^".$pattern."$@";
-
+            
             if (preg_match($pattern, $request, $parameters)==1 && count(preg_match($pattern, $request, $parameters)) > 0){
 
       
@@ -97,6 +97,37 @@ class Router {
                 // not the captured group(s)
                 $parameters = array_slice($parameters, 1);
                 
+                // This bit below that uses associative arrays to call named parameters
+                // is lifted from the PHP Docs.
+                // http://php.net/manual/en/function.call-user-func-array.php#66121
+                
+                // If there are strings in the keys, it means the array as associative elements
+                // If it has associative elements, named captures are being used.
+                // If named captures are being used, let's try use those keys to specify parameters
+                if ((bool)count(array_filter(array_keys($parameters), 'is_string'))== true){
+                    $reflect = new \ReflectionFunction($callback);
+                    $real_params = array();
+                    foreach ($reflect->getParameters() as $i => $param)
+                    {
+                        $pname = $param->getName();
+                        if (array_key_exists($pname, $parameters))
+                        {
+                            $real_params[] = $parameters[$pname];
+                        }
+                        else if ($param->isDefaultValueAvailable()) {
+                            $real_params[] = $param->getDefaultValue();
+                        }
+                        else
+                        {
+                            // missing required parameter: mark an error and exit
+                            //return new Exception('call to '.$function.' missing parameter nr. '.$i+1);
+                            trigger_error(sprintf('call to %s missing parameter nr. %d', $function, $i+1), E_USER_ERROR);
+                            return NULL;
+                        }
+                    }
+                    call_user_func_array($callback, $real_params);
+                    return $this;
+                }
 
                 // This is a funky little function that takes a callback function and
                 // applies an array as it's parameters
