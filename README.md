@@ -7,6 +7,15 @@ microuter is largely inspired by the philosophy behind GluePHP, and the Sinatra 
 No one expects you to write the next Facebook with microuter, but it allows you to avoid
 bloat when you're writing really tiny RESTful APIs or miniscule web apps.
 
+## Installation
+
+User composer with the familiar incantation
+```
+composer require jszym/microuter
+```
+
+Or, just clone the repository and autoload the src folder (or just require/include src/Router.php)
+
 ## Usage
 
 microuter's API is extremely similar to Klein/Slim/Laravel and all of their
