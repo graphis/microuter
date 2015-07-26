@@ -64,7 +64,7 @@ $router->bind("GET","/\+\d{12}|\d{11}|\+\d{2}-\d{3}-\d{7}", function(){
 });
 
 $router->dispatch();
-```php
+```
 
 
 Captured groups in regular expressions are passed as parameters to the callback
